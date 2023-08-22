@@ -6,3 +6,13 @@
     color: red;
     margin-left: 8px;
 }
+
+.Table {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+table, th, td {
+    border:1px solid black;
+}
