@@ -1,3 +1,7 @@
+# Application Description
+This is a React base application for storing user information.
+The application has form with several inputs for storing first name, last name, email and message. For storing the data Redux library is used. Also there is validation logic for all the inputs: first and last names shouldn't be empty, email should be valid and message should have at least 10 characters.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
