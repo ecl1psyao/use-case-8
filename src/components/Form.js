@@ -1,15 +1,17 @@
 import {useState} from "react";
-import validator from "validator/es";
+import validator from 'validator';
 import {useDispatch} from "react-redux";
+
+const initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+}
 
 const Form = () => {
     const dispatch = useDispatch()
-    const [values, setValues] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        message: ''
-    })
+    const [values, setValues] = useState(initialState)
 
     const isFirstNameValid = !validator.isEmpty(values.firstName)
     const isLastNameValid = !validator.isEmpty(values.lastName)
@@ -29,7 +31,8 @@ const Form = () => {
             type: 'SET_VALUES',
             payload: values
         })
-        alert('Values are successfully stored')
+        setValues(initialState)
+        setTimeout(() => alert('Values are successfully stored'))
     }
 
     return (
@@ -37,6 +40,7 @@ const Form = () => {
             <div>
                 First name:
                 <input
+                    data-testid="firstName"
                     onChange={handleChange}
                     value={values.firstName}
                     type="text"
@@ -48,6 +52,7 @@ const Form = () => {
             <div>
                 Last name:
                 <input
+                    data-testid="lastName"
                     onChange={handleChange}
                     value={values.lastName}
                     type="text"
@@ -59,6 +64,7 @@ const Form = () => {
             <div>
                 E-mail:
                 <input
+                    data-testid="email"
                     onChange={handleChange}
                     value={values.email}
                     type="text"
@@ -70,6 +76,7 @@ const Form = () => {
             <div>
                 Message:
                 <input
+                    data-testid="message"
                     onChange={handleChange}
                     value={values.message}
                     type="text"
@@ -79,6 +86,7 @@ const Form = () => {
                 <br />
             </div>
             <input
+                data-testid="submit button"
                 disabled={!(isMessageValid && isFirstNameValid && isLastNameValid && isEmailValid)}
                 type="submit"
                 value="Submit"

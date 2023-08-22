@@ -1,6 +1,6 @@
 import './App.css';
-import Form from "./Form";
-import UserTable from "./UserTable";
+import Form from "./components/Form";
+import UserTable from "./components/UserTable";
 
 function App() {
   return (
